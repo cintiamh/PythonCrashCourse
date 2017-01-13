@@ -112,4 +112,91 @@ print(favorite_language.strip())
 
 ## Numbers
 
+### Integers
+
+You can add (`+`), subtract (`-`), multiply (`*`), and divide (`/`) integers in Python.
+
+```
+>>> 2 + 3
+5
+>>> 3 - 2
+1
+>>> 2 * 3
+6
+>>> 3 / 2
+1.5
+```
+
+Python uses two multiplication symbols (`**`) to represent exponents:
+
+```
+>>> 3 ** 2
+9
+>>> 3 ** 3
+27
+>>> 10 ** 6
+1000000
+```
+
+You can also use parenthesis:
+
+```
+>>> 2 + 3*4
+14
+>>> (2 + 3) * 4
+20
+```
+
+### Floats
+
+Python calls any number with a decimal point a float.
+
+```
+>>> 0.1 + 0.1
+0.2
+>>> 0.2 + 0.2
+0.4
+>>> 2 * 0.1
+0.2
+>>> 2 * 0.2
+0.4
+```
+
+### Avoiding type errors with the `str()` method
+
+If you try to concatenate a variable containing a number to a string using `+`, Python is going to throw a type error.
+You can avoid this by converting the contents of the variable to string using `.str()` method before doing the concatenation.
+
+```python
+age = 23
+message = "Happy " + str(age) + "rd Birthday!"
+print(message)
+```
+
+### Integers in Python 2
+
+In Python 2, if you do Math only with Integers, the result will be an Integer as well, ignoring decimals.
+In order to avoid imprecise results, at least one of the numbers needs to be a Float so the result will be a Float as well.
+
+```
+>>> 3 / 2
+1
+>>> 3.0 / 2
+1.5
+>>> 3 / 2.0
+1.5
+>>> 3.0 / 2.0
+1.5
+```
+
+## Comments
+
+In Python use `#` to write comments.
+
+```python
+# Say hello to everyone.
+print("Hello Python people!")
+```
+
+
 [<< Back](README.md)
