@@ -24,3 +24,7 @@ $ python3
 
 For Python, the naming convention is to use lowercase letters with "`_`" (underscore) for spaces.
 The extension is ".py".
+
+## Table of contents
+
+2. [Variables and Simple Data Types](02_Variables.md)
