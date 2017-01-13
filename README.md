@@ -27,4 +27,4 @@ The extension is ".py".
 
 ## Table of contents
 
-2. [Variables and Simple Data Types](02_Variables.md)
+1. [Variables and Simple Data Types](02_Variables.md)
