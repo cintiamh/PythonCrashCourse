@@ -42,9 +42,9 @@ This flexibility allows you to use quotes and apostrophes within your strings:
 
 #### Some String methods
 
-`title()` displays each word in beginning with a capital letter.
-`upper()` displays all letters uppercased.
-`lower()` displays all letters lowercased. This method is particularly useful to store data.
+* `title()` displays each word in beginning with a capital letter.
+* `upper()` displays all letters uppercased.
+* `lower()` displays all letters lowercased. This method is particularly useful to store data.
 
 ```python
 name = "ada lovelace"
@@ -60,5 +60,56 @@ ADA LOVELACE
 ada lovelace
 ```
 
+#### Combining or Concatenating Strings
+
+Python uses the plus (`+`) symbol to concatenate strings.
+
+```python
+first_name = "ada"
+last_name = "lovelace"
+full_name = first_name + " " + last_name
+message = "Hello, " + full_name.title() + "!"
+print(message)
+```
+
+Which outputs:
+```
+Hello, Ada Lovelace!
+```
+
+#### Adding whitespace to strings with tabs or newlines
+
+* `/t` is used to add a new tab in your string.
+* `/n` is used to add a newline in your string.
+
+```python
+print("Languages:\n\tPython\n\tC\n\tJavaScript")
+```
+
+Outputs:
+```
+Languages:
+	Python
+	C
+	JavaScript
+```
+
+#### Stripping Whitespace
+
+* `.rstrip()` returns a string with the white spaces stripped from the right edges. It doesn't change the variable value.
+* `.lstrip()` does the same as `.rstrip()`, but on the left side of the string.
+* `.strip()` strips the white spaces from both sides of a string.
+
+```python
+favorite_language = ' python '
+print(favorite_language.rstrip())
+# ' python'
+print(favorite_language.lstrip())
+# 'python '
+print(favorite_language.strip())
+# ' python '
+```
+
+## Numbers
 
 [<< Back](README.md)
