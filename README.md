@@ -28,3 +28,4 @@ The extension is ".py".
 ## Table of contents
 
 1. [Variables and Simple Data Types](02_Variables.md)
+2. [Introducing Lists](03_IntroducingLists.md)
