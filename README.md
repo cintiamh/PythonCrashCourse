@@ -31,3 +31,4 @@ The extension is ".py".
 2. [Introducing Lists](03_IntroducingLists.md)
 3. [Working with Lists](04_WorkingWithLists.md)
 4. [If Statements](05_IfStatements.md)
+5. [Dictionaries](06_Dictionaries.md)
