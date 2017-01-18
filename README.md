@@ -33,3 +33,4 @@ The extension is ".py".
 4. [If Statements](05_IfStatements.md)
 5. [Dictionaries](06_Dictionaries.md)
 6. [User Input and While Loops](07_InputAndWhile.md)
+7. [Functions](08_Functions.md)
