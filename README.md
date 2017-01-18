@@ -32,3 +32,4 @@ The extension is ".py".
 3. [Working with Lists](04_WorkingWithLists.md)
 4. [If Statements](05_IfStatements.md)
 5. [Dictionaries](06_Dictionaries.md)
+6. [User Input and While Loops](07_InputAndWhile.md)
