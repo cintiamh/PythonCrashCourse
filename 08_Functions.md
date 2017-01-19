@@ -22,5 +22,23 @@ The parentheses are required. Finally, the definition ends in a colon.
 
 ### Passing information to a function
 
+```python
+def greet_user(username):
+    """Display a simple greeting."""
+    print("Hello, " + username.title() + "!")
+
+greet_user('jesse')
+# Hello, Jesse!
+```
+
+### Arguments and Parameters
+
+A parameter is a piece of information the function needs to do its job. In the case above, the variable `username`.
+
+An argument is a piece of information that is passed from a function call to a function. In the case above, the name we passed in when calling `greet_user`, `jesse`.
+
+## Passing Arguments
+
+
 
 [<< Back](README.md)
