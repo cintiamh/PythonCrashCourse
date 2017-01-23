@@ -280,4 +280,43 @@ make_pizza(16, 'pepperoni')
 make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
 ```
 
+### Using `as` to give a function an alias
+
+If the name of a function you're importing might conflict with an existing name in your program or if the function name is long, you can use an unique alias.
+
+```python
+from pizza import make_pizza as mp
+
+mp(16, 'pepperoni')
+mp(12, 'mushrooms', 'green peppers', 'extra cheese')
+```
+
+### Using `as` to give a module an alias
+
+You can also provide an alias for a module name.
+
+```python
+import pizza as p
+
+p.make_pizza(16, 'pepperoni')
+p.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+```
+
+### Importing all functions in a module
+
+You can tell Python to import every function in a module by using the asterisk `*` operator:
+
+```python
+from pizza import *
+
+make_pizza(16, 'pepperoni')
+make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+```
+
+Because every function is imported, you can call each function by name without using the dot notation.
+
+Python may see several functions or variables with the same name, and instead of importing all the functions separately, it will overwrite functions.
+
+The best approach is to import the function or functions you want, or import the entire module and use the dot notation.
+
 [<< Back](README.md)
