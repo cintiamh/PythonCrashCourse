@@ -230,4 +230,54 @@ make_pizza(16, 'pepperoni')
 make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
 ```
 
+## Storing your functions in modules
+
+You can store your functions in a separated file called module and then importing that module into your main program. An `import` statement tells Python to make the code in a module available in the currently running program file.
+
+### Importing an entire module
+
+A `module` is a file ending in `.py` that contains the code you want to import into your program.
+
+pizza.py
+```python
+def make_pizza(size, *toppings):
+    """Summarize the pizza we are about to make."""
+    print("\nMaking a " + str(size) +
+          "-inch pizza with the following toppings:")
+    for topping in toppings:
+        print("- " + topping)
+```
+
+Now we make a separated file called `making_pizzas.py` with the following content:
+
+```python
+import pizza
+
+pizza.make_pizza(16, 'pepperoni')
+pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+```
+
+This first approach to importing, in which you simply write `import` followed by the module's name, makes every function from the module available in your program.
+
+### Importing specific functions
+
+You can also import a specific function from a module.
+
+```python
+from module_name import function_name
+```
+
+You can import as many functions as you want from a module by separating each function's name with a comma:
+
+```python
+from module_name import function_0, function_1, function2
+```
+
+```python
+from pizza import make_pizza
+
+make_pizza(16, 'pepperoni')
+make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+```
+
 [<< Back](README.md)
