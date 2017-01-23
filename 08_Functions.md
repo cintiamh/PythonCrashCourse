@@ -162,5 +162,72 @@ greet_users(usernames)
 
 ### Modifying a list in a function
 
+When you pass a list to a function, the function can modify the list. Any changes made to the list inside function's body are permanent.
+
+```python
+def print_models(unprinted_desings, completed_models):
+    """Simulate printing each design, until none are left.
+    Move each design to completed_models after printing."""
+    while unprinted_desings:
+        current_design = unprinted_desings.pop()
+
+        # Simulate creating a 3D print from the design
+        print("Printing model: " + current_design)
+        completed_models.append(current_design)
+
+def show_completed_models(completed_models):
+    """Show all the models that were printed."""
+    print("\nThe following models have been printed:")
+    for completed_model in completed_models:
+        print(completed_model)
+
+unprinted_desings = ['iphone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+print_models(unprinted_desings, completed_models)
+show_completed_models(completed_models)
+```
+
+#### Preventing a function from modifying a list
+
+Sometimes you won't want to change the list when going through a function, in this case, you can pass in a copy of the list to the function.
+
+```python
+def function_name(list_name[:]):
+```
+
+Even though you can preserve the contents of a list by passing a copy of it to your functions, you should pass the original list to functions unless you have a specific reason to pass a copy.
+
+## Passing an arbitrary number of arguments
+
+Python allows a function to collect an arbitrary number of arguments from the calling statement.
+
+```python
+def make_pizza(*toppings):
+    """Print the list of toppings that have been requested"""
+    print(toppings)
+
+make_pizza('pepperoni')
+make_pizza('mushrooms', 'green peppers', 'extra cheese')
+# ('pepperoni',)
+# ('mushrooms', 'green peppers', 'extra cheese')
+```
+
+The asterisk in the parameter name `*toppings` tells Python to make an empty tuple called `toppings` and pack whatever values it receives into this. tuple.
+
+### Mixing positional and arbitrary arguments
+
+If you want a function to accept several different kind of arguments, the parameter that accepts an arbitrary number of arguments must be placed last in the function definition.
+
+```python
+def make_pizza(size, *toppings):
+    """Summarize the pizza we are about to make."""
+    print("\nMaking a " + str(size) +
+          "-inch pizza with the following toppings:")
+    for topping in toppings:
+        print("- " + topping)
+
+make_pizza(16, 'pepperoni')
+make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+```
 
 [<< Back](README.md)
