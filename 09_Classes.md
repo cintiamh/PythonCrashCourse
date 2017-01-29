@@ -114,4 +114,85 @@ To make the class more interesting, let's add an attribute that changes over tim
 
 Every attribute in a class needs an initial value, even if that value is 0 or an empty string.
 
+```python
+class Car(object):
+    """A simple attempt to represent a car."""
+
+    def __init__(self, make, model, year):
+        """Initialize attributes to describe a car."""
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        """Return a neatly formatted descriptive name."""
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+
+    def read_odometer(self):
+        """Print a statatement showing the car's mileage."""
+        print("This car has " + str(self.odometer_reading) + " miles on it.")
+
+my_new_car = Car('audi', 'a4', 2016)
+print(my_new_car.get_descriptive_name())
+my_new_car.read_odometer()
+```
+
+### Modifying attribute values
+
+* You can change the value directly through an instance,
+* You can set the value through a method,
+* You can increment the value through a method.
+
+#### Modifying an attribute's value directly
+
+```python
+my_new_car.odometer_reading = 23
+my_new_car.read_odometer()
+```
+
+#### Modifying an attribute's value through a method
+
+```python
+def update_odometer(self, mileage):
+  """Set the odometer reading to the given value"""
+  if mileage >= self.odometer_reading:
+    self.odometer_reading = mileage
+  else:
+    print("You can't roll back an odometer!")
+
+my_new_car.update_odometer(23)
+my_new_car.read_odometer()
+```
+
+In this method we are checking for the value before setting it up.
+
+#### Incrementing an attribute's value through a method
+
+Sometimes you’ll want to increment an attribute’s value by a certain amount rather than set an entirely new value.
+
+```python
+class Car():
+    --snip--
+
+    def update_odometer(self, mileage):
+        --snip--
+
+    def increment_odometer(self, miles):
+        """Add the given amount to the odometer reading."""
+        self.odometer_reading += miles
+
+my_used_car = Car('subaru', 'outback', 2013)
+print(my_used_car.get_descriptive_name())
+
+my_used_car.update_odometer(23500)
+my_used_car.read_odometer()
+
+my_used_car.increment_odometer(100)
+my_used_car.read_odometer()
+```
+
+## Inheritance
+
 [<< Back](README.md)
