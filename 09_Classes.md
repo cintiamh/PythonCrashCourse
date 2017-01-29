@@ -82,4 +82,36 @@ You can create as many instances from a class as you need.
 
 ## Working with classes and instances
 
+One of the first tasks you'll want to do is modify the attributes associated with a particular instance.
+You can modify the attributes of an instance directly or write methods that update attributes in specific way.
+
+### The Car class
+
+```python
+class Car(object):
+    """A simple attempt to represent a car."""
+
+    def __init__(self, make, model, year):
+        """Initialize attributes to describe a car."""
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def get_descriptive_name(self):
+        """Return a neatly formatted descriptive name."""
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+
+my_new_car = Car('audi', 'a4', 2016)
+print(my_new_car.get_descriptive_name())
+```
+
+Outputs: `2016 Audi A4`
+
+To make the class more interesting, let's add an attribute that changes over time.
+
+### Setting a default value for an attribute
+
+Every attribute in a class needs an initial value, even if that value is 0 or an empty string.
+
 [<< Back](README.md)
