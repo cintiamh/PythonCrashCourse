@@ -30,11 +30,30 @@ my_new_car = Car('audi', 'a4', 2016)
 print(my_new_car.get_descriptive_name())
 my_new_car.read_odometer()
 
+class Battery(object):
+    """A simple attempt to model a battery for an electric car."""
+    def __init__(self, battery_size=70):
+        """Initialize the battery's attributes."""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
+
 class ElectricCar(Car):
     """Represents aspects of a car, specific to electric vehicles."""
     def __init__(self, make, model, year):
-        """Initialize attributes of a parent class."""
+        """
+        Initialize attributes of a parent class.
+        Then initialize attributes specific to an electric car.
+        """
         super(ElectricCar, self).__init__(make, model, year)
+        self.battery = Battery()
+
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
 
 my_tesla = ElectricCar('tesla', 'model s', 2016)
 print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()

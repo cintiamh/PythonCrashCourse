@@ -253,4 +253,72 @@ super(ElectricCar, self).__init__(make, model, year)
 
 The `super()` function needs two arguments: a reference to the child class and the `self` object. These arguments are necessary to help Python make proper connections between the parent and child classes.
 
+### Defining attributes and methods for the child class
+
+Once you have a child class that inherits from a parent class, you can add any new attributes and methods necessary to differentiate the child class from the parent class.
+
+```python
+class ElectricCar(Car):
+    """Represents aspects of a car, specific to electric vehicles."""
+    def __init__(self, make, model, year):
+        """
+        Initialize attributes of a parent class.
+        Then initialize attributes specific to an electric car.
+        """
+        super(ElectricCar, self).__init__(make, model, year)
+        self.battery_size = 70
+
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
+
+my_tesla = ElectricCar('tesla', 'model s', 2016)
+print(my_tesla.get_descriptive_name())
+my_tesla.describe_battery()
+```
+
+### Overriding methods from the parent class
+
+To override any method from the parent class that doesn't fit the child class, you define a method in the child class with the same name as the method you want to override in the parent class.
+
+Python will disregard the parent class method and only pay attention to the method you define in the child class.
+
+```python
+def ElectricCar(Car):
+    --snip--
+
+    def fill_gas_tank():
+        """Electric cars don't have gas tanks."""
+        print("This car doesn't need a gas tank!")
+```
+
+### Instances as attributes
+
+You can break your large class into smaller classes that work together.
+
+```python
+class Battery(object):
+    """A simple attempt to model a battery for an electric car."""
+    def __init__(self, battery_size=70):
+        """Initialize the battery's attributes."""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
+
+class ElectricCar(Car):
+    """Represents aspects of a car, specific to electric vehicles."""
+    def __init__(self, make, model, year):
+        super(ElectricCar, self).__init__(make, model, year)
+        self.battery = Battery()
+
+my_tesla.battery.describe_battery()
+```
+
+This looks like a lot of extra work, but now we can describe the battery in as much detail as we want without cluttering the `ElectricCar` class.
+
+## Importing classes
+
+
 [<< Back](README.md)
