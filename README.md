@@ -35,3 +35,4 @@ The extension is ".py".
 6. [User Input and While Loops](07_InputAndWhile.md)
 7. [Functions](08_Functions.md)
 8. [Classes](09_Classes.md)
+9. [Files and Exceptions](10_Files.md)
