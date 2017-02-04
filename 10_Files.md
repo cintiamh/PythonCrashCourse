@@ -40,4 +40,24 @@ The `read()` method returns an empty string when it reaches the end of the file.
 
 ### File Paths
 
+When you pass a simple file name like `pi_digits.txt` to the `open()` function, Python looks in the directory where the file that's currently being executed is stored.
+
+To get Python to open files from a directory other than the one where your program file is stored, you need to provide a file path.
+
+```python
+with open('text_files/filename.txt') as file_object:
+```
+
+In Windows systems you use a backslash (`\`) instead of a forward slash (`/`) in the file path.
+
+You can also tell Python exactly where the file is on your computer. This is called absolute file path.
+
+```python
+file_path = '/home/higashi/other_files/text_files/filename.txt'
+with open(file_path) as file_object:
+```
+
+### Reading line by line
+
+
 [<< Back](README.md)
