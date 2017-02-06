@@ -206,4 +206,86 @@ with open(filename, 'a') as file_object:
     file_object.write("I love creating apps that can run in a browser.\n")
 ```
 
+## Exceptions
+
+Exceptions are handled with `try-except` blocks.
+
+### Handle the ZeroDivisionError Exception
+
+division.py
+```python
+print(5/0)
+```
+
+This fires an exception.
+
+```
+Traceback (most recent call last):
+  File "division.py", line 1, in <module>
+    print(5/0)
+ZeroDivisionError: integer division or modulo by zero
+```
+
+### Using `try-except` blocks
+
+```python
+try:
+    print(5/0)
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+```
+
+Output:
+
+```
+You can't divide by zero!
+```
+
+If more code followed the `try-except` block, the program would continue running because we told Python how to handle the error.
+Let’s look at an example where catching an error can allow a program to continue running.
+
+### Using Exceptions to prevent crashes
+
+Handling error correctly is specially important when the program has more work to do after the error occurs.
+
+```python
+print("Give me two numbers, and I'll divide them.")
+print("Enter 'q' to quit.")
+
+while True:
+    first_number = input("\nFirst number: ")
+    if first_number == 'q':
+        break
+
+    second_number = input("Second number: ")
+    if second_number == 'q':
+        break
+
+    answer = int(first_number) / int(second_number)
+    print(answer)
+```
+
+If the user inputs a division by 0, the program will crash.
+
+### The else block
+
+The `try-except-else` block works like this: Python attempts to run the code in the `try` statement.
+The only code that should go in a `try` statement is code that might cause an exception to be raised.
+Sometimes you’ll have additional code that should run only if the `try` block was successful; this code goes in the `else` block.
+The `except` block tells Python what to do in case a certain exception arises when it tries to run the code in the `try` statement.
+
+```python
+try:
+  answer = int(first_number) / int(second_number)
+except ZeroDivisionError:
+  print("You can't divide by zero!")
+else:
+  print(answer)
+```
+
+By anticipating likely sources of errors, you can write robust programs that continue to run even when they encounter invalid data and missing resources. Your code will be resistant to innocent user mistakes and malicious attacks.
+
+### Handling the FileNotFoundError Exception
+
+
 [<< Back](README.md)
