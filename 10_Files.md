@@ -287,5 +287,114 @@ By anticipating likely sources of errors, you can write robust programs that con
 
 ### Handling the FileNotFoundError Exception
 
+One common issue when working with files is handling missing files.
+
+```python
+filename = 'alice.txt'
+
+try:
+    with open(filename) as f_obj:
+        contents = f_obj.read()
+except FileNotFoundError:
+    msg = "Sorry, the file " + filename + " does not exist."
+    print(msg)
+else:
+    # Count the approximate number of words in the file.
+    words = contents.split()
+    num_words = len(words)
+    print("The file " + filename + " has about " + str(num_words) + " words.")
+```
+
+### Failing silently
+
+To make a program fail silently, you write a `try` block as usual, but you explicitly tell Python to do nothing in the `except` block. Python has a `pass` statement that tells it to do nothing in a block.
+
+```python
+def count_words(filename):
+    """Count the approximate number of words in a file."""
+    try:
+        --snip--
+    except FileNotFoundError:
+        pass
+    else:
+        --snip--
+
+filenames = ['alice.txt', 'siddhartha.txt', 'moby_dick.txt', 'little_women.txt']
+for filename in filenames:
+    count_words(filename)
+```
+
+The `pass` statement also acts as a placeholder. It's a reminder that you're choosing to do nothing at a specific point in your program's execution and that you might want to do something there later.
+
+## Storing data
+
+The `json` module allows you to dump simple Python data structures into a file and load the data from that file the next time the program runs.
+You can also use `json` to share data between different Python programs.
+
+### Using `json.dump()` and `json.load()`
+
+Let's write a short program that stores a set of numbers and another program that reads these numbers back into memory.
+
+The `json.dum()` function takes two arguments: a piece of data to store and a file object it can use to store the data.
+
+number_writer.py
+```python
+import json
+
+numbers = [2, 3, 5, 7, 11, 13]
+
+filename = 'numbers.json'
+with open(filename, 'w') as f_obj:
+    json.dump(numbers, f_obj)
+```
+
+Now we'll write a program that uses `json.load()`:
+
+number_reader.py
+```python
+import json
+
+filename = 'numbers.json'
+with open(filename) as f_obj:
+    numbers = json.load(f_obj)
+
+print(numbers)
+```
+
+The full code (works with Python3)
+
+```python
+import json
+
+def get_stored_username():
+    """Get stored username if available."""
+    filename = 'username.json'
+    try:
+        with open(filename) as f_obj:
+            username = json.load(f_obj)
+    except FileNotFoundError:
+        return None
+    else:
+        return username
+
+def get_new_username():
+    """Prompt for a new username."""
+    username = input("What is your name? ")
+    filename = 'username.json'
+    with open(filename, 'w') as f_obj:
+        json.dump(username, f_obj)
+    return username
+
+def greet_user():
+    """Greet the user by name."""
+    username = get_stored_username()
+    if username:
+        print("Welcome back, " + username + "!")
+    else:
+        username = get_new_username()
+        print("We'll remember you when you come back, " + username + "!")
+
+greet_user()
+```
 
 [<< Back](README.md)
