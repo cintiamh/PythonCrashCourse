@@ -139,4 +139,23 @@ class NamesTestCase(unittest.TestCase):
 unittest.main()
 ```
 
+## Testing a class
+
+### A variety of assert methods
+
+Python provides a number of assert methods in the `unittest.TestCase` class.
+
+* `assertEqual(a, b)` - Verify that `a == b`
+* `assertNotEqual(a, b)` - Verify that `a != b`
+* `assertTrue(x)` - Verify that `x` is `True`
+* `assertFalse(x)` - Verify that `x` is `False`
+* `assertIn(item, list)` - Verify that `item` is in `list`
+* `assertNotIn(item, list)` - Verify that `item` is in `list`
+
+### A class to test
+
+Testing a class is similar to testing a function - much of your work involves testing the behavior of the methods in the class.
+
+
+
 [<< Back](README.md)
