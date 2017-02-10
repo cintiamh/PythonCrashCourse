@@ -2,6 +2,20 @@
 
 Python is already installed on most OS X systems.
 
+## Finding the installed version
+
+```
+$ python --version
+Python 2.7.12
+$ python3 --version
+```
+
+## Using Homebrew to install Python 3
+
+```
+$ brew install python3
+```
+
 ## Running Snippets of Python Code
 
 Starts Python prompt:
